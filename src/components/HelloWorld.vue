@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>FUck</h1>
+    <h1>Fuck</h1>
+    <el-button type="primary" icon="el-icon-edit"></el-button>
   </div>
 </template>
 
@@ -9,6 +10,17 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  sockets: {
+    connect: function () {
+      console.log("I am connected");
+    },
+    disconnect: function () {
+      console.log("I am disconnected");
+    },
+    circuitChange: function (data) {
+      console.log(data);
+    }
   }
 }
 </script>
