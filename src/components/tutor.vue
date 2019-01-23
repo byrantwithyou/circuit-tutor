@@ -47,7 +47,13 @@ export default {
     },
     disconnect: function () {
     },
-    circuitChange: function (id, type, posx, posy, flag, socketId) { 
+    circuitChange: function (data) { 
+      let id = data[0];
+      let type = data[1];
+      let posx = data[2];
+      let posy = data[3];
+      let flag = data[4];
+      let socketId = data[5];
       if (flag == "1") {
         this.$store.commit("circuits/addComponent", {
           componentId: id,
