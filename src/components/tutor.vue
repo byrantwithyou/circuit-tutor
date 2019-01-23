@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for = "(item, index) in socketsidFiltered" :key="index">
+    <div class="circuit-container" v-for = "(item, index) in socketsidFiltered" :key="index">
       <el-row>
         <el-col :span="11">
           <circuit :socketId="socketsid[2 * index]"></circuit>
@@ -12,7 +12,7 @@
         </el-col>
       </el-row>
     </div>
-    <div v-if="socketsid.length % 2 != 0">
+    <div class="circuit-container" v-if="socketsid.length % 2 != 0">
       <el-row>
         <el-col :span="11">
           <circuit :socketId="socketsid[socketsid.length - 1]"></circuit>
@@ -67,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+.circuit-container {
+  margin: 10px;
+}
 </style>

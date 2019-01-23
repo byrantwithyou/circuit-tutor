@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>fuck</span>
+    <el-button @click="praise" type="primary" icon="el-icon-success" size="mini"></el-button>
   </div>
 </template>
 
@@ -17,7 +17,11 @@ export default {
   computed: {},
   methods: {
     create:function(){
+    },
+    praise: function () {
+      this.$socket.emit("praise", this.socketId);
     }
+
   }
 }
 
