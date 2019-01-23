@@ -23,6 +23,7 @@
 <script>
 import circuit from "@/components/circuit";
 export default {
+  /* eslint-disable */
   name: 'tutor',
   data() {
     return {
@@ -46,7 +47,8 @@ export default {
     },
     disconnect: function () {
     },
-    circuitChange: function () {
+    circuitChange: function (data) {
+      console.log(data); 
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
