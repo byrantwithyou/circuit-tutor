@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>Fuck</h1>
-    <el-button type="primary" icon="el-icon-edit"></el-button>
+    <el-button @click="send" type="primary" icon="el-icon-edit"></el-button>
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
     },
     circuitChange: function (data) {
       console.log(data);
+    }
+  },
+  methods: {
+    send () {
+      this.$socket.emit("fuck", "/student#L8uSFj-8p5XHuBk9AAAC");
     }
   }
 }
