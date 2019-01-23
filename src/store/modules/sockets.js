@@ -1,22 +1,24 @@
 const state = {
-  data: ""
+  socketsid: new Array()
 }
 
 const getters = {};
 
 const mutations = {
-  changeData(state, payload) {
-    state.data = payload.data;
+  addSocket(state, payload) {
+    state.socketsid.push(payload.id);
+  },
+  removeSocket(state, payload) {
+    state.socketsid.splice(state.socketsid.indexOf(payload.id), 1);
   }
 };
 
 const actions = {
-  SOCKET_circuitChange({commit}, payload) {
+  /*SOCKET_circuitChange({commit}, payload) {
     commit("changeData", {
       data: payload
     });
-    console.log(payload);
-  }
+  }*/
 }; 
 
 export default {
