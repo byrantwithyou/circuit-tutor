@@ -47,8 +47,25 @@ export default {
     },
     disconnect: function () {
     },
-    circuitChange: function (data) {
-      console.log(data); 
+    circuitChange: function (id, type, posx, posy, flag, socketId) { 
+      if (flag == "1") {
+        this.$store.commit("circuits/addComponent", {
+          componentId: id,
+          componentType: type,
+          posx: posx,
+          posy: posy,
+          socketId: socketId
+        });
+      }
+      else {
+        this.$store.commit("circuits/removeComponent", {
+          componentId: id,
+          componentType: type,
+          posx: posx,
+          posy: posy,
+          socketId: socketId
+        });
+      }
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
