@@ -6,8 +6,10 @@
       <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>
       <br>
       <br>
-      <img src="/breadboard/breadboard.svg" class="image">
-      <img v-for="(item, index) in components" :key="index" :src="item.componentType">
+      <div style="position: relative;">
+        <img src="/breadboard/breadboard.svg" class="image">
+        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top + 'px', left: left + 'px'}">
+      </div>
     </el-card>
   </div>
 </template>
@@ -17,6 +19,9 @@ export default {
   name: 'circuit',
   data() {
     return {
+      position: "absolute",
+      top: 0,
+      left: 0
     }
   },
   components: {
