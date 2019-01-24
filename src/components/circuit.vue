@@ -23,7 +23,8 @@ export default {
   },
   computed: {
     components: function () {
-      return 1;
+      let socket = this.socketId;
+      return this.$store.state.circuits.circuits[socket];
     }
   },
   methods: {
