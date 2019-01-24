@@ -15,13 +15,14 @@
 </template>
 
 <script>
+//1.54% for one hole, 1 / 65 excatly
 export default {
   name: 'circuit',
   data() {
     return {
       position: "absolute",
       top: 20,
-      left: 2,
+      left: 3.54,
       width: 10
     }
   },
