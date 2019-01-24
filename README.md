@@ -21,5 +21,5 @@ npm run lint
 ```
 
 ### TODO
-- [] student socekt on emit
-- [] emit the width information
+-  student socekt on emit
+-  emit the width information
