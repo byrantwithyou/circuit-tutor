@@ -6,8 +6,8 @@
       <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>
       <br>
       <br>
-      <img src="@/assets/breadboard/breadboard.svg" class="image">
-      <img v-for="(item, index) in components" :key="index" src="/74HC595.svg">
+      <img src="/breadboard/breadboard.svg" class="image">
+      <img v-for="(item, index) in components" :key="index" :src="item.componentType">
     </el-card>
   </div>
 </template>
