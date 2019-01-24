@@ -8,7 +8,7 @@
       <br>
       <div style="position: relative;">
         <img src="/breadboard/breadboard.svg" class="image">
-        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top , left: left}">
+        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top + '%', left: left + '%', width: width + '%'}">
       </div>
     </el-card>
   </div>
@@ -20,8 +20,9 @@ export default {
   data() {
     return {
       position: "absolute",
-      top: "15%",
-      left: "2%"
+      top: 15,
+      left: 2,
+      width: 10
     }
   },
   components: {

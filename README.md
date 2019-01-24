@@ -19,3 +19,7 @@ npm run build
 ```
 npm run lint
 ```
+
+### TODO
+- [] student socekt on emit
+- [] emit the width information
