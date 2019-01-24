@@ -7,6 +7,7 @@
       <br>
       <br>
       <img src="@/assets/breadboard/breadboard.svg" class="image">
+      <img v-for="(item, index) in components" :key="index" :src="item.componentType">
     </el-card>
   </div>
 </template>
@@ -18,13 +19,15 @@ export default {
     return {
     }
   },
+  components: {
+    
+  },
   props: {
     socketId: String,
   },
   computed: {
     components: function () {
-      let socket = this.socketId;
-      return this.$store.state.circuits.circuits[socket];
+      return this.$store.state.circuits.circuits[this.socketId];
     }
   },
   methods: {

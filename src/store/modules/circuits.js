@@ -1,3 +1,6 @@
+import Vue from "vue";
+
+
 const state = {
   circuits: {}
 }
@@ -7,7 +10,7 @@ const getters = {};
 const mutations = {
   addComponent(state, payload) {
     if (!state.circuits[payload.socketId]) {
-      state.circuits[payload.socketId] = new Array();
+      Vue.set(state.circuits, payload.socketId, new Array());
     }
     state.circuits[payload.socketId].push({
       componentType: payload.componentType,
@@ -23,6 +26,9 @@ const mutations = {
         state.circuits[payload.socketId].splice(ind, 1);
       }
     } 
+    if (state.circuits[payload.socketId].length == 0) {
+      Vue.delete(state.circuits, payload.socketId);
+    }
   }
 };
 
