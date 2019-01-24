@@ -55,6 +55,19 @@ export default {
       else if (["F", "G", "H", "I", "J"].includes(posy)) {
         return 31.3 + baseline; 
       }
+      else if (posy == "W") {
+        return 91.8;
+      }
+      else if (posy == "X") {
+        return 87.3;
+      }
+      else if (posy == "Y") {
+        return 6;
+      }
+      else if (posy == "Z") {
+        return 1.5;
+      }
+      
       return 20.5;
     }
   }
