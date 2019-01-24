@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       position: "absolute",
-      top: 15,
+      top: 20,
       left: 2,
       width: 10
     }
