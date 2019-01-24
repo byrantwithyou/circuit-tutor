@@ -8,7 +8,7 @@
       <br>
       <div style="position: relative;">
         <img src="/breadboard/breadboard.svg" class="image">
-        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top + '%', left: left + '%', width: width + '%'}">
+        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top + '%', left: posx2left(item.posx) + '%', width: width + '%'}">
       </div>
     </el-card>
   </div>
@@ -22,7 +22,6 @@ export default {
     return {
       position: "absolute",
       top: 20,
-      left: 3.54,
       width: 10
     }
   },
@@ -42,6 +41,12 @@ export default {
     },
     praise: function () {
       this.$socket.emit("praise", this.socketId);
+    },
+    posx2left: function (posx) {
+      let left = (posx - 1) / 65 + 2;
+      /* eslint-disable */
+      console.log(left);
+      return left;
     }
 
   }
