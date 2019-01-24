@@ -8,20 +8,18 @@
       <br>
       <div style="position: relative;">
         <img src="/breadboard/breadboard.svg" class="image">
-        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: top + '%', left: posx2left(item.posx) + '%', width: width + '%'}">
+        <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: posy2top(item.posy) + '%', left: posx2left(item.posx) + '%', width: width + '%'}">
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
-//1.54% for one hole, 1 / 65 excatly
 export default {
   name: 'circuit',
   data() {
     return {
       position: "absolute",
-      top: 20.5,
       width: 9.5
     }
   },
@@ -47,9 +45,20 @@ export default {
       /* eslint-disable */
       console.log(left);
       return left;
+    },
+    posy2top: function(posy) {
+      let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.5;
+      if (["A", "B", "C", "D", "E"].includes(posy)){
+        console.log(20.5 + (posy.charCodeAt() - "A".charCodeAt())* 4.5);
+        return 20.5 + baseline;
+      }
+      else if (["F", "G", "H", "I", "J"].includes(posy)) {
+        return 31.3 + baseline; 
+      }
+      return 20.5;
     }
-
   }
+
 }
 
 </script>
