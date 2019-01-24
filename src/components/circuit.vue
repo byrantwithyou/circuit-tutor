@@ -21,8 +21,8 @@ export default {
   data() {
     return {
       position: "absolute",
-      top: 20,
-      width: 10
+      top: 20.5,
+      width: 9.5
     }
   },
   components: {
@@ -43,7 +43,7 @@ export default {
       this.$socket.emit("praise", this.socketId);
     },
     posx2left: function (posx) {
-      let left = (posx - 1) / 65 + 2;
+      let left = (posx - 1) * 1.55 + 2.2;
       /* eslint-disable */
       console.log(left);
       return left;
