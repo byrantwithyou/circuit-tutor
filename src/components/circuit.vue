@@ -7,7 +7,7 @@
       <br>
       <br>
       <img src="@/assets/breadboard/breadboard.svg" class="image">
-      <img v-for="(item, index) in components" :key="index" :src="item.componentType">
+      <img v-for="(item, index) in components" :key="index" src="/74HC595.svg">
     </el-card>
   </div>
 </template>
