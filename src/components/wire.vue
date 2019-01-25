@@ -17,12 +17,29 @@ export default {
   computed: {
     left: function () {
       let posx = Number(this.posx0);
-      let left = (posx - 1) * 1.51 + 2.25;
+      let left = (posx - 1) * 1.535 + 2.25;
       return left + "%";
 
     },
     top: function () {
-      let posy = this.posy0;
+      let posyy = this.posy0;
+      let trans = {
+        "A": "J",
+        "B": "I",
+        "C": "H",
+        "D": "G",
+        "E": "F",
+        "F": "E",
+        "G": "D",
+        "H": "C",
+        "I": "B",
+        "J": "A",
+        "W": "W",
+        "X": "X",
+        "Y": "Y",
+        "Z": "Z"
+      };
+      let posy = trans[posyy];
       let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.7;
       if (["A", "B", "C", "D", "E"].includes(posy)){
         return 23 + baseline;
