@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       position: "absolute",
-      width: 9.5
+      width: 6.5
     }
   },
   components: {
@@ -41,31 +41,31 @@ export default {
       this.$socket.emit("praise", this.socketId);
     },
     posx2left: function (posx) {
-      let left = (posx - 1) * 1.55 + 2.2;
+      let left = (posx - 1) * 1.51 + 2.25;
       /* eslint-disable */
       console.log(left);
       return left;
     },
     posy2top: function(posy) {
-      let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.5;
+      let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.7;
       if (["A", "B", "C", "D", "E"].includes(posy)){
         console.log(20.5 + (posy.charCodeAt() - "A".charCodeAt())* 4.5);
-        return 20.5 + baseline;
+        return 21.5 + baseline;
       }
       else if (["F", "G", "H", "I", "J"].includes(posy)) {
-        return 31.3 + baseline; 
+        return 31.5 + baseline; 
       }
       else if (posy == "W") {
-        return 91.8;
+        return 92.8;
       }
       else if (posy == "X") {
-        return 87.3;
+        return 88.1;
       }
       else if (posy == "Y") {
-        return 6;
+        return 7;
       }
       else if (posy == "Z") {
-        return 1.5;
+        return 2.3;
       }
       
       return 20.5;

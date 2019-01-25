@@ -2,10 +2,10 @@
   <div>
     <div class="circuit-container" v-for = "(item, index) in socketsidFiltered" :key="index">
       <el-row>
-        <el-col :span="11" :offset="0">
+        <el-col :span="11" :offset="1">
           <circuit :socketId="socketsid[2 * index]"></circuit>
         </el-col>
-        <el-col :span="11" :offset="2">
+        <el-col :span="11" :offset="1">
           <circuit :socketId="socketsid[2 * index + 1]"></circuit>
         </el-col>
       </el-row>
