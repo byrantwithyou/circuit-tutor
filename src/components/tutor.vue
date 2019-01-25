@@ -82,6 +82,26 @@ export default {
       this.$store.commit("sockets/removeSocket", {
         id: id
       });
+    },
+    wire: function(data) {
+      let idtype = data[0];
+      let pos = data[1];
+      let flag = data[2];
+      let socketId = data[3];
+      if (flag == "1") {
+        this.$store.commit("wires/addWire", {
+          idtype: idtype,
+          pos: pos,
+          socketId: socketId
+        })
+      }
+      else {
+        this.$store.commit("wires/removeWire", {
+          idtype: idtype,
+          pos: pos,
+          socketId: socketId
+        })
+      }
     }
   },
   methods: {
