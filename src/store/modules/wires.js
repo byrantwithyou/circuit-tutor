@@ -36,9 +36,6 @@ const mutations = {
         state.wires[socketId].splice(ind, 1);
       }
     }
-    console.log("============================");
-    console.log(socketId);
-    console.log(state.wires[socketId]);
     if (state.wires[socketId].length == 0) {
       Vue.delete(state.wires, socketId);
     }
