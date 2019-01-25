@@ -1,5 +1,5 @@
 <template>
-  <div :style="{position: position, top: top, left: left}">
+  <div :style="{position: position, top: top + '%', left: left}">
     <svg>
       <line x1="0" y1="0" :x2="200" :y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
     </svg>
@@ -22,7 +22,27 @@ export default {
 
     },
     top: function () {
-      return "1%";
+      let posy = this.posy0;
+      let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.7;
+      if (["A", "B", "C", "D", "E"].includes(posy)){
+        return 23 + baseline;
+      }
+      else if (["F", "G", "H", "I", "J"].includes(posy)) {
+        return 33 + baseline; 
+      }
+      else if (posy == "W") {
+        return 92.8 + 2;
+      }
+      else if (posy == "X") {
+        return 88.1 + 2;
+      }
+      else if (posy == "Y") {
+        return 8.5;
+      }
+      else if (posy == "Z") {
+        return 2.3 + 1.5;
+      }
+      return 20.5;
     }
   },
   props: {

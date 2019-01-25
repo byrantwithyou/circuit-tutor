@@ -9,7 +9,7 @@
       <div style="position: relative;">
         <img src="/breadboard/breadboard.svg" class="image">
         <img v-for="(item, index) in components" :key="index" :src="item.componentType" :style="{ position: position, top: posy2top(item.posy) + '%', left: posx2left(item.posx) + '%', width: width + '%'}">
-        <wire v-for="(item, index) in wires" :key="index" :posx0="item.posx[0]" :posx1="item.posx[1]" :posy0="item.posy[0]" :posy1="item.posy[1]"></wire>          
+        <wire v-for="(item, index) in wires" :key="100 + index" :posx0="item.posx[0]" :posx1="item.posx[1]" :posy0="item.posy[0]" :posy1="item.posy[1]"></wire>          
       </div>
     </el-card>
   </div>
