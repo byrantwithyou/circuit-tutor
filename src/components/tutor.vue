@@ -2,7 +2,7 @@
   <div>
   <el-row>
     <el-col :span="11" :offset="1" v-for = "(item, index) in socketsid" :key="index">
-      <circuit :socketId="item[0]"></circuit>
+      <circuit :socketId="item"></circuit>
     </el-col>
   </el-row>
   </div>
@@ -22,7 +22,6 @@ export default {
   },
   sockets: {
     circuitChange: function () { 
-
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {

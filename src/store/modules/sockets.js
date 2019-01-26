@@ -1,15 +1,23 @@
+
 const state = {
-  socketsid: new Array()
+  socketsid: new Array(),
+  imgString: new Array()
 }
 
 const getters = {};
 
 const mutations = {
   addSocket(state, payload) {
-    state.socketsid.push([payload.id, ""]);
+    state.socketsid.push(payload.id);
+    state.imgString.push("");
   },
   removeSocket(state, payload) {
-    state.socketsid.splice(state.socketsid.findIndex((element) => element[0] == payload.id), 1);
+    let index = state.socketsid.findIndex((element) => element == payload.id);
+    state.socketsid.splice(index, 1);
+    state.imgString.splice(index, 1);
+  },
+  changeImg() {
+    
   }
 };
 
