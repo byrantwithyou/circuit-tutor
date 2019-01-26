@@ -43,7 +43,7 @@ export default {
     create:function(){
     },
     praise: function () {
-      this.$socket.emit("praise", this.socketId);
+      this.$socket.emit("praise", this.socketId, "Wonderful");
     },
     posx2left: function (posx) {
       let left = (posx - 1) * 1.535 + 2.27;

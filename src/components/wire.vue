@@ -1,7 +1,7 @@
 <template>
-  <div :style="{position: position, top: top + '%', left: left}">
-    <svg>
-      <line x1="0" y1="0" :x2="200" :y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+  <div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; ">
+    <svg width="100%" height="100%">
+      <line :x1="posx2left(posx0)" :y1="posy2top(posy0) + '%'" :x2="posx2left(posx1)" :y2="posy2top(posy1) + '%'" style="stroke:rgb(255,0,0);stroke-width:2" />
     </svg>
   </div>
 </template>
@@ -11,18 +11,25 @@ export default {
   name: 'wire',
   data() {
     return {
-      position: "absolute",
     }
   },
   computed: {
-    left: function () {
-      let posx = Number(this.posx0);
-      let left = (posx - 1) * 1.535 + 2.25;
+  },
+  props: {
+    posx0: String,
+    posx1: String,
+    posy0: String,
+    posy1: String
+  },
+  components: {
+  },
+  methods: {
+    posx2left: function (posx) {
+      let left = (Number(posx) - 1) * 1.535 + 2.25;
+      /* eslint-disable */
       return left + "%";
-
     },
-    top: function () {
-      let posyy = this.posy0;
+    posy2top: function (posyy) {
       let trans = {
         "A": "J",
         "B": "I",
@@ -42,40 +49,24 @@ export default {
       let posy = trans[posyy];
       let baseline = (posy.charCodeAt() - "A".charCodeAt()) * 4.7;
       if (["A", "B", "C", "D", "E"].includes(posy)){
-        return 23 + baseline;
+        return 23.5 + baseline;
       }
       else if (["F", "G", "H", "I", "J"].includes(posy)) {
-        return 33 + baseline; 
+        return 34.5 + baseline; 
       }
       else if (posy == "W") {
-        return 92.8 + 2;
+        return 93.3 + 2;
       }
       else if (posy == "X") {
-        return 88.1 + 2;
+        return 88.4 + 2;
       }
       else if (posy == "Y") {
-        return 8.5;
+        return 9;
       }
       else if (posy == "Z") {
-        return 2.3 + 1.5;
+        return 2.8 + 1.5;
       }
       return 20.5;
-    }
-  },
-  props: {
-    posx0: String,
-    posx1: String,
-    posy0: String,
-    posy1: String
-  },
-  components: {
-  },
-  methods: {
-    posx2left: function (posx) {
-      let left = (posx - 1) * 1.51 + 2.25;
-      /* eslint-disable */
-      console.log(left);
-      return left;
     }
   }
   

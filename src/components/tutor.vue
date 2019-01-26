@@ -12,7 +12,7 @@
     </div>
     <div class="circuit-container" v-if="socketsid.length % 2 != 0">
       <el-row>
-        <el-col :span="11">
+        <el-col :span="11" :offset="1">
           <circuit :socketId="socketsid[socketsid.length - 1]"></circuit>
         </el-col>
       </el-row>
