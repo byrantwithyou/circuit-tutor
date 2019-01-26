@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>{{socketId.split("#")[1]}}</span>
+    <!--span>{{socketId.split("#")[1]}}</span-->
     <div class="placeholder"></div>
     <el-card>
       <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>

@@ -1,7 +1,7 @@
 <template>
   <div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; ">
     <svg width="100%" height="100%">
-      <line :x1="posx2left(posx0)" :y1="posy2top(posy0) + '%'" :x2="posx2left(posx1)" :y2="posy2top(posy1) + '%'" style="stroke:rgb(255,0,0);stroke-width:2" />
+      <line :x1="posx2left(posx0)" :y1="posy2top(posy0) + '%'" :x2="posx2left(posx1)" :y2="posy2top(posy1) + '%'" style="stroke:rgb(255,0,0);stroke-width:1" />
     </svg>
   </div>
 </template>
