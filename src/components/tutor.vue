@@ -23,12 +23,7 @@
 <script>
 import circuit from "@/components/circuit";
 export default {
-  /* eslint-disable */
-  name: 'tutor',
-  data() {
-    return {
-    }
-  },
+  name: "tutor",
   computed: {
     socketsid: function () {
       return this.$store.state.sockets.socketsid;
@@ -37,41 +32,12 @@ export default {
       return new Array(Math.floor(this.socketsid.length / 2));
     }
   },
-  props: {
-  },
   components: {
     circuit
   },
   sockets: {
-    connect: function () {
-    },
-    disconnect: function () {
-    },
-    circuitChange: function (data) { 
-      let id = data[0];
-      let type = data[1];
-      let posx = data[2];
-      let posy = data[3];
-      let flag = data[4];
-      let socketId = data[5];
-      if (flag == "1") {
-        this.$store.commit("circuits/addComponent", {
-          componentId: id,
-          componentType: type,
-          posx: posx,
-          posy: posy,
-          socketId: socketId
-        });
-      }
-      else {
-        this.$store.commit("circuits/removeComponent", {
-          componentId: id,
-          componentType: type,
-          posx: posx,
-          posy: posy,
-          socketId: socketId
-        });
-      }
+    circuitChange: function () { 
+
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
@@ -82,29 +48,7 @@ export default {
       this.$store.commit("sockets/removeSocket", {
         id: id
       });
-    },
-    wire: function(data) {
-      let idtype = data[0];
-      let pos = data[1];
-      let flag = data[2];
-      let socketId = data[3];
-      if (flag == "1") {
-        this.$store.commit("wires/addWire", {
-          idtype: idtype,
-          pos: pos,
-          socketId: socketId
-        })
-      }
-      else {
-        this.$store.commit("wires/removeWire", {
-          idtype: idtype,
-          pos: pos,
-          socketId: socketId
-        })
-      }
     }
-  },
-  methods: {
   }
 }
 </script>
