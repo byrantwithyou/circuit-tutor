@@ -1,3 +1,4 @@
+import initImg from "@/config/initImg";
 
 const state = {
   socketsid: new Array(),
@@ -9,7 +10,7 @@ const getters = {};
 const mutations = {
   addSocket(state, payload) {
     state.socketsid.push(payload.id);
-    state.imgString.push("");
+    state.imgString.push(initImg);
   },
   removeSocket(state, payload) {
     let index = state.socketsid.findIndex((element) => element == payload.id);

@@ -4,7 +4,6 @@
       <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>
       <br>
       <div>
-        <span>{{imgString}}</span>
         <img class="image" :src="imgString">
       </div>
     </el-card>
