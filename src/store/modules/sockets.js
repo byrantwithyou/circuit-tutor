@@ -6,10 +6,10 @@ const getters = {};
 
 const mutations = {
   addSocket(state, payload) {
-    state.socketsid.push(payload.id);
+    state.socketsid.push([payload.id, ""]);
   },
   removeSocket(state, payload) {
-    state.socketsid.splice(state.socketsid.indexOf(payload.id), 1);
+    state.socketsid.splice(state.socketsid.findIndex((element) => element[0] == payload.id), 1);
   }
 };
 

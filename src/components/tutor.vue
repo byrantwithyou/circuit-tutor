@@ -2,7 +2,7 @@
   <div>
   <el-row>
     <el-col :span="11" :offset="1" v-for = "(item, index) in socketsid" :key="index">
-      <circuit :socketId="item"></circuit>
+      <circuit :socketId="item[0]"></circuit>
     </el-col>
   </el-row>
   </div>
@@ -15,9 +15,6 @@ export default {
   computed: {
     socketsid: function () {
       return this.$store.state.sockets.socketsid;
-    },
-    socketsidFiltered: function () {
-      return new Array(Math.floor(this.socketsid.length / 2));
     }
   },
   components: {
