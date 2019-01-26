@@ -16,7 +16,9 @@ const mutations = {
     state.socketsid.splice(index, 1);
     state.imgString.splice(index, 1);
   },
-  changeImg() {
+  changeImg(state, payload) {
+    let index = state.socketsid.findIndex((element) => element == payload.id);
+    state.imgString[index] = payload.imgString;
     
   }
 };

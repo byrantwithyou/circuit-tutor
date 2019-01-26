@@ -21,7 +21,13 @@ export default {
     circuit
   },
   sockets: {
-    circuitChange: function () { 
+    circuitChange: function (data) {
+      let imgString = data[0];
+      let socketId = data[1];
+      this.$store.commit("sockets/changeImg", {
+        imgString: imgString,
+        id: socketId
+      }) 
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
