@@ -19,7 +19,7 @@ const mutations = {
   },
   changeImg(state, payload) {
     let index = state.socketsid.findIndex((element) => element == payload.id);
-    state.imgString[index] = payload.imgString;
+    state.imgString[index] = "data:image/png;base64," + payload.imgString;
     
   }
 };
