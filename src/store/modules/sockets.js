@@ -1,4 +1,5 @@
 import initImg from "@/config/initImg";
+import Vue from "vue";
 
 const state = {
   socketsid: new Array(),
@@ -19,7 +20,7 @@ const mutations = {
   },
   changeImg(state, payload) {
     let index = state.socketsid.findIndex((element) => element == payload.id);
-    state.imgString[index] = "data:image/png;base64," + payload.imgString;
+    Vue.set(state.imgString, index, "data:image/png;base64," + payload.imgString);
     
   }
 };

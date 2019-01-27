@@ -27,7 +27,7 @@ export default {
       this.$store.commit("sockets/changeImg", {
         imgString: imgString,
         id: socketId
-      }) 
+      }); 
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
