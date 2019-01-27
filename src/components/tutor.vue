@@ -1,7 +1,7 @@
 <template>
   <div>
   <el-row>
-    <el-col :span="6" v-for = "(item, index) in socketsid" :key="index">
+    <el-col :span="12" v-for = "(item, index) in socketsid" :key="index">
       <circuit :socketId="item"></circuit>
       <br>
     </el-col>
