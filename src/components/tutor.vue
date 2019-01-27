@@ -1,10 +1,12 @@
 <template>
   <div>
   <el-row>
-    <el-col :span="11" :offset="1" v-for = "(item, index) in socketsid" :key="index">
+    <el-col :span="6" v-for = "(item, index) in socketsid" :key="index">
       <circuit :socketId="item"></circuit>
+      <br>
     </el-col>
   </el-row>
+  <br>
   </div>
 </template>
 
@@ -44,7 +46,5 @@ export default {
 </script>
 
 <style scoped>
-.circuit-container {
-  margin: 10px;
-}
+
 </style>

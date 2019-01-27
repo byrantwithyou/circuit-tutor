@@ -1,12 +1,17 @@
 <template>
-  <div>
+  <div class="circuit-container">
+    <el-container>
+    <el-main>
     <el-card>
       <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>
-      <br>
+      <div style="height: 10px; width: 100%;"></div>
       <div>
         <img class="image" :src="imgString">
       </div>
     </el-card>
+    </el-main>
+    <el-aside width="20px;"></el-aside>
+    </el-container>
   </div>
 </template>
 
@@ -35,12 +40,17 @@ export default {
 <style scoped>
 .image{
   width: 100%;
+  height: 300px;
   position: relative;
   display: block;
 }
 
 .button {
   float: right
+}
+
+.circuit-contaienr{
+  margin: 30px
 }
 </style>
 
