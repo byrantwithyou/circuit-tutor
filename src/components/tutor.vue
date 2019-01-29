@@ -26,10 +26,12 @@ export default {
     circuitChange: function (data) {
       let imgString = data[0];
       let socketId = data[1];
-      this.$store.commit("sockets/changeImg", {
-        imgString: imgString,
-        id: socketId
-      }); 
+      if (this.getState(socketId) == 1) {
+        this.$store.commit("sockets/changeImg", {
+          imgString: imgString,
+          id: socketId
+        }); 
+      }
     },
     studentOn: function(id) {
       this.$store.commit("sockets/addSocket", {
@@ -40,6 +42,22 @@ export default {
       this.$store.commit("sockets/removeSocket", {
         id: id
       });
+    },
+    studentSleep: function(id) {
+      this.$store.commit("sockets/disState", {
+        id: id
+      })
+    },
+    studentAwake: function(id) {
+      this.$store.commit("sockets/activeState", {
+        id: id
+      });
+    }
+  },
+  methods: {
+    getState: function(socketId) {
+      let index = this.$store.state.sockets.socketsid.findIndex((element) => element == socketId);
+      return this.$store.state.sockets.activeState[index];
     }
   }
 }

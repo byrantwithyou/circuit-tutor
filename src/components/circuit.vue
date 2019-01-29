@@ -6,7 +6,7 @@
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
       <div style="width: 100%; height: 20px;"></div>
       <div v-viewer>
-        <img @click="hover" class="image" :src="imgString">
+        <img class="image" :src="imgString">
       </div>
       <br>
       <el-row>
@@ -41,9 +41,6 @@ export default {
     },
     textSend: function() {
       this.$socket.emit("text", this.socketId, this.text);
-    },
-    hover: function() {
-      console.log("hover");
     }
   },
   computed: {
@@ -51,6 +48,14 @@ export default {
       let index = this.$store.state.sockets.socketsid.findIndex((element) => element == this.socketId);
       return this.$store.state.sockets.imgString[index];
     }
+  },
+  created: function () {
+    let that = this;
+    setTimeout(function (){
+      that.$store.commit("sockets/activeState", {
+        id: that.socketId
+      });
+    }, 1000);
   }
 
 }
