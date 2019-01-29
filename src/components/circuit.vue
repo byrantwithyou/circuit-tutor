@@ -3,11 +3,20 @@
     <el-container>
     <el-main>
     <el-card>
-      <el-button @click="praise" type="success" icon="el-icon-success" size="mini" class="button"></el-button>
-      <div style="height: 10px; width: 100%;"></div>
+      <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
+      <div style="width: 100%; height: 20px;"></div>
       <div>
         <img class="image" :src="imgString">
       </div>
+      <br>
+      <el-row>
+        <el-col :span="20" :gutter="1">
+          <el-input placeholder="Say Something to the student" suffix-icon="el-icon-edit" v-model="text"></el-input>
+        </el-col>
+        <el-col :span="3">
+          <el-button @click="textSend" style="float: right;" type="primary" round icon="el-icon-check"></el-button>
+        </el-col>
+      </el-row>
     </el-card>
     </el-main>
     <el-aside width="20px;"></el-aside>
@@ -18,6 +27,11 @@
 <script>
 export default {
   name: 'circuit',
+  data() {
+    return {
+      text: ""
+    }
+  },
   props: {
     socketId: String,
   },
@@ -25,6 +39,9 @@ export default {
     praise: function () {
       this.$socket.emit("praise", this.socketId, "Wonderful");
     },
+    textSend: function() {
+      this.$socket.emit("text", this.socketId, this.text);
+    }
   },
   computed: {
     imgString: function() {
