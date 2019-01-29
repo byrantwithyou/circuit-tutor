@@ -5,8 +5,8 @@
     <el-card>
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
       <div style="width: 100%; height: 20px;"></div>
-      <div>
-        <img class="image" :src="imgString">
+      <div v-viewer>
+        <img @click="hover" class="image" :src="imgString">
       </div>
       <br>
       <el-row>
@@ -41,6 +41,9 @@ export default {
     },
     textSend: function() {
       this.$socket.emit("text", this.socketId, this.text);
+    },
+    hover: function() {
+      console.log("hover");
     }
   },
   computed: {

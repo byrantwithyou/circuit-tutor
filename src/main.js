@@ -6,6 +6,8 @@ import './plugins/element.js';
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import VueSocketIO from "vue-socket.io";
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
 
 Vue.use(ElementUI);
 Vue.use(new VueSocketIO({
@@ -17,6 +19,7 @@ Vue.use(new VueSocketIO({
     mutationPrefix: "SOCKET_"
   }
 }));
+Vue.use(Viewer);
 
 
 new Vue({
