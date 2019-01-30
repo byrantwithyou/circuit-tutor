@@ -3,10 +3,12 @@
     <el-container>
     <el-main>
     <el-card>
+      <h1>fuck</h1>
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
       <div style="width: 100%; height: 20px;"></div>
       <div v-viewer>
-        <img class="image" :src="imgString">
+        <vue-cropper :src="imgString" autoCropArea=0.1></vue-cropper>
+        <!--img class="image" :src="imgString"-->
       </div>
       <br>
       <el-row>
@@ -25,12 +27,17 @@
 </template>
 
 <script>
+import whiteboard from "@/config/whiteboard";
+import VueCropper from "vue-cropperjs";
 export default {
   name: 'circuit',
   data() {
     return {
       text: ""
     }
+  },
+  components: {
+    VueCropper
   },
   props: {
     socketId: String,
@@ -46,6 +53,9 @@ export default {
   computed: {
     imgString: function() {
       let index = this.$store.state.sockets.socketsid.findIndex((element) => element == this.socketId);
+      if (this.$store.state.sockets.activeState[index] == 0) {
+        return whiteboard;
+      }
       return this.$store.state.sockets.imgString[index];
     }
   },
