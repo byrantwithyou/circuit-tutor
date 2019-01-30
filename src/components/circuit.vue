@@ -3,12 +3,12 @@
     <el-container>
     <el-main>
     <el-card>
-      <h1>fuck</h1>
+     <el-button @click="toggle">Toggle</el-button>
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
       <div style="width: 100%; height: 20px;"></div>
-      <div v-viewer>
-        <vue-cropper :src="imgString" autoCropArea=0.1></vue-cropper>
-        <!--img class="image" :src="imgString"-->
+      <div>
+        <vue-cropper v-show="!imgShow" :viewMode=3 :autoCropArea=0.01 :src="imgString"></vue-cropper>
+        <img v-show="imgShow" class="image" :src="imgString">
       </div>
       <br>
       <el-row>
@@ -27,13 +27,14 @@
 </template>
 
 <script>
-import whiteboard from "@/config/whiteboard";
+import initImg from "@/config/initImg";
 import VueCropper from "vue-cropperjs";
 export default {
   name: 'circuit',
   data() {
     return {
-      text: ""
+      text: "",
+      imgShow: true
     }
   },
   components: {
@@ -48,13 +49,16 @@ export default {
     },
     textSend: function() {
       this.$socket.emit("text", this.socketId, this.text);
+    },
+    toggle: function () {
+
     }
   },
   computed: {
     imgString: function() {
       let index = this.$store.state.sockets.socketsid.findIndex((element) => element == this.socketId);
       if (this.$store.state.sockets.activeState[index] == 0) {
-        return whiteboard;
+        return initImg;
       }
       return this.$store.state.sockets.imgString[index];
     }
