@@ -3,11 +3,12 @@
     <el-container>
     <el-main>
     <el-card>
-     <el-button @click="toggle">Toggle</el-button>
+      <el-button @click="toggle">Toggle</el-button>
+      <el-button @click="sendRec">Send</el-button>      
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
       <div style="width: 100%; height: 20px;"></div>
       <div>
-        <vue-cropper v-show="!imgShow" :viewMode=3 :autoCropArea=0.01 :src="imgString"></vue-cropper>
+        <vue-cropper :img-style="{ 'width': '100%', 'height': '300px' }" ref="cropper" v-if="!imgShow" :initialAspectRatio="0.5" :viewMode=3 :autoCropArea=0.4 :src="imgString"></vue-cropper>
         <img v-show="imgShow" class="image" :src="imgString">
       </div>
       <br>
@@ -38,7 +39,7 @@ export default {
     }
   },
   components: {
-    VueCropper
+    VueCropper,
   },
   props: {
     socketId: String,
@@ -51,7 +52,21 @@ export default {
       this.$socket.emit("text", this.socketId, this.text);
     },
     toggle: function () {
+      this.imgShow = !this.imgShow;
+    },
+    sendRec: function() {
+      let img = this.$refs.cropper.getImageData();
+      let imgWidth = img.width;
+      let imgHeight = img.height;
 
+
+      let cropperData = this.$refs.cropper.getData();
+      let xOffset = cropperData.x;
+      let yOffset = cropperData.y;
+      let croppedAreaWidth = cropperData.width;
+      let croppedAreaHeight = cropperData.height;
+
+      this.$socket.emit("highlight", this.socket.id, xOffset / imgWidth, yOffset / imgHeight, croppedAreaWidth / imgWidth, croppedAreaHeight / imgHeight);
     }
   },
   computed: {
