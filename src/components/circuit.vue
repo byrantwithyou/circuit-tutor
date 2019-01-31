@@ -3,6 +3,7 @@
     <el-container>
     <el-main>
     <el-card>
+      <span>{{test}}</span>
       <el-button @click="toggle">Toggle</el-button>
       <el-button @click="sendRec">Send</el-button>      
       <el-button @click="praise" type="success" icon="el-icon-star-on" size="mini" class="button"></el-button>
@@ -35,7 +36,8 @@ export default {
   data() {
     return {
       text: "",
-      imgShow: true
+      imgShow: true,
+      test:""
     }
   },
   components: {
@@ -65,8 +67,8 @@ export default {
       let yOffset = cropperData.y;
       let croppedAreaWidth = cropperData.width;
       let croppedAreaHeight = cropperData.height;
-
-      this.$socket.emit("highlight", this.socket.id, xOffset / imgWidth, yOffset / imgHeight, croppedAreaWidth / imgWidth, croppedAreaHeight / imgHeight);
+      this.test = xOffset;
+      this.$socket.emit("highlight", this.socketId, xOffset / imgWidth, yOffset / imgHeight, croppedAreaWidth / imgWidth, croppedAreaHeight / imgHeight);
     }
   },
   computed: {
