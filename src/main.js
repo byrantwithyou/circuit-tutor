@@ -6,8 +6,8 @@ import './plugins/element.js';
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import VueSocketIO from "vue-socket.io";
-import "viewerjs/dist/viewer.css";
-import Viewer from "v-viewer";
+import ECharts from "vue-echarts";
+
 
 Vue.use(ElementUI);
 Vue.use(new VueSocketIO({
@@ -19,7 +19,6 @@ Vue.use(new VueSocketIO({
     mutationPrefix: "SOCKET_"
   }
 }));
-Vue.use(Viewer);
 
 
 new Vue({
@@ -27,3 +26,5 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app');
+
+Vue.component("v-chart", ECharts);

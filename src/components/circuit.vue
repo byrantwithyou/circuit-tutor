@@ -20,6 +20,7 @@
           <el-button @click="textSend" style="float: right;" type="primary" round icon="el-icon-check"></el-button>
         </el-col>
       </el-row>
+        <v-chart :options="options" />
     </el-card>
     </el-main>
     <el-aside width="20px;"></el-aside>
@@ -30,15 +31,81 @@
 <script>
 import initImg from "@/config/initImg";
 import VueCropper from "vue-cropperjs";
+import "echarts/lib/chart/heatmap";
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/pie';
+import 'echarts/lib/chart/map';
+import 'echarts/lib/chart/radar';
+import 'echarts/lib/chart/scatter';
+import 'echarts/lib/chart/effectScatter';
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/polar';
+import 'echarts/lib/component/geo';
+import 'echarts/lib/component/legend';
+import 'echarts/lib/component/title';
+import 'echarts/lib/component/visualMap';
+import 'echarts/lib/component/dataset';
+
+
 export default {
   name: 'circuit',
   data() {
+    let hours = ['12a', '1a'];
+    let days = ['Add Component'];
+    let data = [[0,0,1], [0,1,2]]
+
+    data = data.map(function (item) {
+      return [item[1], item[0], item[2] || '-'];
+    });
+
     return {
       text: "",
       imgShow: true,
-      x: "",
-      imgX: "",
-      c: ""
+      options: {
+        tooltip: {
+          position: "top"
+        },
+        animation: false,
+        grid: {
+          height: '10%',
+          y: '10%'
+        },
+        xAxis: {
+          type: 'category',
+          data: hours,
+          splitArea: {
+            show: true
+          }
+        },
+        yAxis: {
+          type: 'category',
+          data: days,
+          splitArea: {
+            show: true
+          }
+        },
+        visualMap: {
+          min: 0,
+          max: 10,
+          calculable: true,
+          orient: 'horizontal',
+          left: 'center',
+          bottom: '15%',
+          show: false
+        },
+        series: [{
+          name: 'Punch Card',
+          type: 'heatmap',
+          data: data,
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }]
+      }
     }
   },
   components: {
@@ -108,6 +175,9 @@ export default {
 .circuit-contaienr{
   margin: 30px
 }
+
+
+
 </style>
 
 
