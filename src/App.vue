@@ -79,6 +79,9 @@ export default {
     showPoorStudent: function() {
       this.$router.push("/poor");
     } 
+  },
+  created: function() {
+    this.$router.push("/");
   }
 }
 </script>
