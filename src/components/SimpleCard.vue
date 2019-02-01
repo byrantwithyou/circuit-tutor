@@ -2,15 +2,16 @@
   <div>
     <el-container>
       <el-main>
+        <div>Carol</div>
+        <img style="width: 100%;" src="bg.png">
       </el-main>
-      <el-aside width="50px">
-        <el-row>
-          <el-col :span="2">
-            <div class="bg-purple-light">
-              <i v-for="index in 6" :key="index" class="el-icon-search bg-purple-light m-10"></i>
-            </div>
-          </el-col>
-        </el-row>
+      <el-aside width="50px" >
+        <div class="m-5">Active</div>     
+        <el-button class="m-10" size="mini" type="primary" icon="el-icon-view" circle></el-button>
+        <el-button class="m-10" size="mini" type="success" icon="el-icon-success" circle></el-button>
+        <el-button class="m-10" size="mini" type="info" icon="el-icon-question" circle></el-button>
+        <el-button class="m-10" size="mini" type="warning" icon="el-icon-error" circle></el-button>
+        <el-button class="m-10" size="mini" type="danger" icon="el-icon-service" circle></el-button> 
       </el-aside>
     </el-container>
   </div>
@@ -35,13 +36,19 @@ export default {
     background-color: #D3DCE6;
     color: #333;
     text-align: center;
-    line-height: 200px;
   }
   
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
-    line-height: 160px;
+    padding: 0;
+  }
+
+  .m-10 {
+    margin: 10px;
+  }
+
+  .m-5 {
+    margin: 5px;
   }
 </style>

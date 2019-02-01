@@ -5,10 +5,10 @@ import store from "@/store";
 import './plugins/element.js';
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-
+import VueGoogleCharts from "vue-google-charts";
 
 Vue.use(ElementUI);
-
+Vue.use(VueGoogleCharts);
 
 
 new Vue({

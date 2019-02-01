@@ -56,6 +56,9 @@ export default {
   methods: { 
     toggleSearchInput: function () {
       this.showSearchInput = !this.showSearchInput;
+      if (this.searchInput != "") {
+        this.$router.push("/all");
+      }
       this.searchInput = "";
     },
     showCondition: function() {
