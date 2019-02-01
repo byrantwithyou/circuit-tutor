@@ -1,14 +1,62 @@
 <template>
   <div>
+    <el-container style="height: 500px; border: 1px solid #eee">
+        <el-header style="border: 1px solid #eee">
+          <el-row v-show="!showSearchInput">
+            <el-col :span="1" :offset="23">
+              <el-button @click="toggleSearchInput" style="margin: 10px;" icon="el-icon-search" circle></el-button>
+            </el-col>
+          </el-row>
+          <el-row v-show="showSearchInput">
+            <el-col :span="22">
+              <el-input @blur="toggleSearchInput" style="margin: 10px;" placeholder="Please Enter Student Name" v-model="searchInput"></el-input>
+            </el-col>
+            <el-col :span="1" :offset="1">
+              <el-button @click="toggleSearchInput" style="margin: 10px;" icon="el-icon-search" circle></el-button>
+            </el-col>
+          </el-row>
+        </el-header>
+        <el-container>
+          <el-aside style="background-color: rgb(238, 241, 246)" width="200px">
+            <el-menu :default-openeds="['1', '2']">
+              <el-submenu index="1">
+                <template slot="title"><i class="el-icon-info"></i>Home</template>
+                <el-menu-item index="1-1">Condition</el-menu-item>
+                <el-menu-item index="1-2">Instruction</el-menu-item>
+                <el-menu-item index="1-3">Notice</el-menu-item>
+              </el-submenu>
+              <el-submenu index="2">
+                <template slot="title"><i class="el-icon-menu"></i>Group</template>
+                <el-menu-item index="2-1">All</el-menu-item>
+                <el-menu-item index="2-2">Good Student</el-menu-item>
+                <el-menu-item index="2-3">Poor Student</el-menu-item>
+              </el-submenu>
+            </el-menu>
+          </el-aside>
+          <el-main>Main</el-main>
+        </el-container>
+    </el-container>
   </div>
 </template>
+
 
 <script>
 export default {
   name: "tutor",
+  data() {
+    return {
+      showSearchInput: false,
+      searchInput: "",
+    }
+  },
   computed: { },
   components: { },
-  methods: { }
+  methods: { 
+    toggleSearchInput: function () {
+      this.showSearchInput = !this.showSearchInput;
+      this.searchInput = "";
+    }
+  }
 }
 </script>
 
