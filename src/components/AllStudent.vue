@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>AllStudent</h1>
+    <el-row :gutter="10">
+      <el-col :span="12">
+        <simplecard></simplecard>
+      </el-col>
+      <el-col :span="12">
+        <simplecard></simplecard>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 
 <script>
+import simplecard from "@/components/SimpleCard";
 export default {
   name: "allstudent",
   data() {
@@ -13,7 +21,9 @@ export default {
     }
   },
   computed: { },
-  components: { },
+  components: { 
+    simplecard
+  },
   methods: { 
   }
 }
