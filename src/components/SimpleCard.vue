@@ -1,11 +1,16 @@
 <template>
   <div>
-    <el-container height="100px">
-      <el-main>Snapshot of Circuit Board</el-main>
+    <el-container>
+      <el-main>
+      </el-main>
       <el-aside width="50px">
-        <div>
-          <i class="el-icon-edit"></i>
-        </div>
+        <el-row>
+          <el-col :span="2">
+            <div class="bg-purple-light">
+              <i v-for="index in 6" :key="index" class="el-icon-search bg-purple-light m-10"></i>
+            </div>
+          </el-col>
+        </el-row>
       </el-aside>
     </el-container>
   </div>
